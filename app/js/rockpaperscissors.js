@@ -21,6 +21,8 @@ function randomPlay() {
 /*           Write Your Code Below            */
 ////////////////////////////////////////////////
 
+//Global variables
+
 var winner = "";
 var playerMove = "";
 var computerMove = "";
