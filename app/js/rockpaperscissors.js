@@ -21,6 +21,10 @@ function randomPlay() {
 /*           Write Your Code Below            */
 ////////////////////////////////////////////////
 
+var winner = "";
+var playerMove = "";
+var computerMove = "";
+
 function getPlayerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
@@ -59,7 +63,7 @@ function getWinner(playerMove,computerMove) {
         else {
             winner = "player";
         }
-
+    }
     else {
         if (computerMove === "paper") {
             winner = "tie";
@@ -71,10 +75,6 @@ function getWinner(playerMove,computerMove) {
             winner = "player";
         }
     }
-    // Write code that will set winner to either 'player', 'computer', or 'tie' based on the values of playerMove and computerMove.
-    // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
-    // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
-    /* YOUR CODE HERE */
     return winner;
 }
 
@@ -83,13 +83,13 @@ function playToFive() {
     var playerWins = 0;
     var computerWins = 0;
     while (playerWins < 5 && computerWins < 5) {
-        getPlayerMove();
-        getComputerMove();
-        getWinner();
+        playerMove = getPlayerMove();
+        computerMove = getComputerMove();
+        winner = getWinner(playerMove,computerMove);
 
         if (winner === "player") {
             console.log("Player chose " + playerMove + " and computer chose " + computerMove + ". Player wins this round.");
-            PlayerWins++;
+            playerWins++;
         }
         else if (winner === "computer") {
             console.log("Player chose " + playerMove + " and computer chose " + computerMove + ". Computer wins this round.");
@@ -101,8 +101,6 @@ function playToFive() {
 
         console.log("The score is now " + playerWins + " to " + computerWins + ".");
     }
-    // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
-    /* YOUR CODE HERE */
     return [playerWins, computerWins];
 }
 
